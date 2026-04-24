@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg-beige: #f5f5dc;
+  --brown-dark: #3e2723;
+  --brown-medium: #5d4037;
+  --brown-light: #8d6e63;
+  --border-color: #d7ccc8;
+  --text-primary: #3e2723;
+  --text-secondary: #795548;
+  --input-bg: #ffffff;
+  --output-bg: #efebe9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-beige);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--brown-dark);
+  text-transform: lowercase;
+  letter-spacing: -1px;
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.box {
+  background: var(--input-bg);
+  border: 1px solid var(--border-color);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 600px;
+}
+
+.box-header {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+textarea {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.9rem;
+  resize: none;
+  background: transparent;
+  color: var(--brown-dark);
+}
+
+.output-container {
+  flex: 1;
+  background: var(--output-bg);
+  padding: 15px;
+  overflow-y: auto;
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--brown-dark);
+  white-space: pre-wrap;
+}
+
+button.process-btn {
+  background: var(--brown-dark);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+button.process-btn:hover {
+  opacity: 0.9;
+}
+
+button.process-btn:disabled {
+  background: var(--brown-light);
+  cursor: not-allowed;
+}
+
+.error-msg {
+  color: #d32f2f;
+  font-size: 0.85rem;
+  margin-top: 10px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-beige);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brown-light);
+}
